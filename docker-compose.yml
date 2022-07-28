@@ -21,8 +21,7 @@ services:
       - net
 
   yapi:
-    image: xx
-    #image: hub.qucheng.com/app/yapi:${TAG}
+    image: hub.qucheng.com/app/yapi:${TAG}
     container_name: yapi
     ports:
       - '3000:3000'
@@ -34,7 +33,7 @@ services:
       - MONGODB_USER=yapi
       - MONGODB_PASSWORD=yapi123456
       - MONGODB_DATABASE=yapi
-      - YAPI_ADMIN_NAME=admin@localhost
+      - YAPI_ADMIN_EMAIL=admin@localhost
     networks:
       - net
 

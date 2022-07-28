@@ -1,1 +1,2 @@
-<!-- 这里是应用的【Tag】信息，通过命令维护，详情参考：https://github.com/quicklyon/doc-toolkit -->
+- [latest](https://github.com/YMFE/yapi/tags)
+- [1.9.3](https://github.com/YMFE/yapi/releases/tag/1.9.3)

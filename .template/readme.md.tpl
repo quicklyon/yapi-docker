@@ -39,30 +39,7 @@ docker pull easysoft/{{APP_DOCKER_IMAGE_NAME}}:[TAG]
 
 ## 四、持久化数据
 
-如果你删除容器，所有的数据都将被删除，下次运行镜像时会重新初始化数据。为了避免数据丢失，你应该为容器提供一个挂在卷，这样可以将数据进行持久化存储。
-
-为了数据持久化，你应该挂载持久化目录：
-
-- /data 持久化数据
-
-如果挂载的目录为空，首次启动会自动初始化相关文件
-
-```bash
-$ docker run -it \
-    -v $PWD/data:/data \
-docker pull easysoft/{{APP_DOCKER_IMAGE_NAME}}:latest
-```
-
-或者修改 docker-compose.yml 文件，添加持久化目录配置
-
-```bash
-services:
-  {{APP_NAME}}:
-  ...
-    volumes:
-      - /path/to/gogs-persistence:/data
-  ...
-```
+Yapi 的数据写入了 mongodb，自身不需要持久化
 
 ## 五、环境变量
 
