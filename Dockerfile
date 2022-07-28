@@ -27,7 +27,7 @@ RUN install_npm_pkg pm2@5.2.0 -g
 
 # Install yapi
 ARG VERSION
-ENV APP_VER=v1.9.3
+ENV APP_VER=${VERSION}
 ENV EASYSOFT_APP_NAME="yapi $APP_VER"
 
 COPY --from=skycitygalaxy/yapi:v1.9.3 /api/vendors /apps/yapi/vendors
