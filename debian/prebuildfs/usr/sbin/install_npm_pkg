@@ -1,0 +1,31 @@
+#!/bin/sh
+set -e
+set -u
+
+# change repo url
+MIRROR=${MIRROR:-false}
+
+alias install_cmd='npm install'
+if [ "$MIRROR" = "true" ];then
+    alias install_cmd='npm install --registry https://registry.npm.taobao.org'
+fi
+
+export DEBIAN_FRONTEND=noninteractive
+n=0
+max=2
+until [ $n -gt $max ]; do
+    set +e
+    (
+      install_cmd "$@"
+    )
+    CODE=$?
+    set -e
+    if [ $CODE -eq 0 ]; then
+        break
+    fi
+    if [ $n -eq $max ]; then
+        exit $CODE
+    fi
+    echo "npm failed, retrying"
+    n=$(($n + 1))
+done

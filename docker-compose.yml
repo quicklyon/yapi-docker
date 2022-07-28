@@ -1,0 +1,44 @@
+version: '2'
+
+networks:
+  net:
+    driver: bridge
+
+services:
+  mongodb:
+    image: hub.qucheng.com/app/mongodb:4.4.15-debian-10-r8
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    volumes:
+      - 'db:/bitnami/mongodb'
+    environment:
+      - MONGODB_ROOT_PASSWORD=root123456
+      - MONGODB_EXTRA_USERNAMES=yapi
+      - MONGODB_EXTRA_PASSWORDS=yapi123456
+      - MONGODB_EXTRA_DATABASES=yapi
+    networks:
+      - net
+
+  yapi:
+    image: xx
+    #image: hub.qucheng.com/app/yapi:${TAG}
+    container_name: yapi
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+      - MONGODB_USER=yapi
+      - MONGODB_PASSWORD=yapi123456
+      - MONGODB_DATABASE=yapi
+      - YAPI_ADMIN_NAME=admin@localhost
+    networks:
+      - net
+
+# persistence
+volumes:
+  db:
+    driver: local

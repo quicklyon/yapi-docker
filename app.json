@@ -1,0 +1,16 @@
+{
+    "Name": "yapi",
+    "Version": "1.0.0",
+    "Home": "http://yapi.smart-xwork.cn/",
+    "Maintainer": "qisy qishiyao@easycorp.ltd",
+    "GitUrl": "https://github.com/YMFE/yapi",
+    "DockerfileUrl": "https://github.com/quicklyon/yapi-docker",
+    "InstallDocUrl": "https://www.qucheng.com/app-install/install-yapi-1.html",
+    "Docker": {
+        "Name": "yapi",
+        "OS": "debian-11",
+        "ImageOS": "debian:11.4-slim",
+        "Repo": "https://hub.docker.com/r/easysoft/yapi",
+        "TagUrl": "https://hub.docker.com/r/easysoft/yapi/tags/"
+    }
+}

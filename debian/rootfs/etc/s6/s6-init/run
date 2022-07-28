@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# shellcheck disable=SC1091
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+[ -n "${DEBUG:+1}" ] && set -x
+
+# Load libraries
+. /opt/easysoft/scripts/liblog.sh
+. /opt/easysoft/scripts/libfs.sh
+. /opt/easysoft/scripts/libmongodb.sh
+
+# Load Global/Apache/PHP environment variables
+. /etc/s6/s6-init/envs
+
+#=========================#
+#   Prepare Yapi Config   #
+#=========================#
+YAPI_CONFIG_FILE="$WORKDIR/config.json"
+
+/usr/bin/render-template ${YAPI_CONFIG_FILE}.tpl > ${YAPI_CONFIG_FILE}
+
+#=======================#
+# Check MongoDB service #
+#=======================#
+wait_for_mongodb || exit 1
+
+#=========================#
+# Initialize yapi         #
+# create admin user       #
+# add collection indexes  #
+#=========================#
+node vendors/server/checkInit.js || (
+    test $? -eq 128 && node vendors/server/install.js
+)
