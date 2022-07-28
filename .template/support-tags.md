@@ -1,2 +1,2 @@
 - [latest](https://github.com/YMFE/yapi/tags)
-- [1.9.3](https://github.com/YMFE/yapi/releases/tag/1.9.3)
+- [v1.9.3](https://github.com/YMFE/yapi/releases/tag/1.9.3)
