@@ -30,7 +30,7 @@ ARG VERSION
 ENV APP_VER=${VERSION}
 ENV EASYSOFT_APP_NAME="yapi $APP_VER"
 
-COPY --from=skycitygalaxy/yapi:v1.9.3 /api/vendors /apps/yapi/vendors
+COPY --from=yapipro/yapi:1.9.5 /yapi/vendors /apps/yapi/vendors
 ADD config.json.tpl /apps/yapi
 ADD checkInit.js /apps/yapi/vendors/server
 
