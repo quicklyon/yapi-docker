@@ -8,3 +8,4 @@ export MONGODB_DATABASE=${MONGODB_DATABASE:-yapi}
 export MONGODB_USER=${MONGODB_USER:-yapi}
 export MONGODB_PASSWORD=${MONGODB_PASSWORD:-pass4Yapi}
 export YAPI_ADMIN_EMAIL=admin@localhost
+export RENDER_CONFIG_FILE="true"

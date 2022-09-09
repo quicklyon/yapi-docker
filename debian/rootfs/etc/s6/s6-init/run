@@ -21,8 +21,9 @@ set -o pipefail
 #=========================#
 YAPI_CONFIG_FILE="$WORKDIR/config.json"
 
-/usr/bin/render-template ${YAPI_CONFIG_FILE}.tpl > ${YAPI_CONFIG_FILE}
-
+if [ "$RENDER_CONFIG_FILE" = "true" ];then
+  /usr/bin/render-template ${YAPI_CONFIG_FILE}.tpl > ${YAPI_CONFIG_FILE}
+fi
 #=======================#
 # Check MongoDB service #
 #=======================#
