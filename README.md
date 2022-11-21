@@ -30,8 +30,7 @@ yapi官网：[http://yapi.smart-xwork.cn/](http://yapi.smart-xwork.cn/)
 
 由于版本比较多,这里只列出最新的5个版本,更详细的版本列表请参考:[可用版本列表](https://hub.docker.com/r/easysoft/yapi/tags/)
 
-- [latest](https://github.com/YMFE/yapi/tags)
-- [1.9.3](https://github.com/YMFE/yapi/releases/tag/1.9.3)
+
 
 ## 三、获取镜像
 
@@ -75,7 +74,7 @@ make run
 make ps
 
 # 查看服务日志
-docker-compose logs -f gogs
+docker-compose logs -f yapi
 
 ```
 

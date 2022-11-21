@@ -1,2 +1,3 @@
 - [latest](https://github.com/yapi-pro/yapi/tags)
 - [v1.9.5](https://github.com/yapi-pro/yapi/releases/tag/v1.9.5)
+- [1.12.0](https://github.com/YMFE/yapi/releases/tag/v1.12.0)

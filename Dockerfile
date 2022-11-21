@@ -30,7 +30,10 @@ ARG VERSION
 ENV APP_VER=${VERSION}
 ENV EASYSOFT_APP_NAME="yapi $APP_VER"
 
-COPY --from=yapipro/yapi:1.9.5 /yapi/vendors /apps/yapi/vendors
+RUN mkdir -p /apps/yapi
+RUN curl -L http://registry.npm.taobao.org/yapi-vendor/download/yapi-vendor-${VERSION#v}.tgz | tar zxf - -C /tmp \
+  && mv /tmp/package /apps/yapi/vendors \
+  && cd /apps/yapi/vendors && npm set strict-ssl false && npm install --production --registry https://registry.npm.taobao.org --legacy-peer-deps
 ADD config.json.tpl /apps/yapi
 ADD checkInit.js /apps/yapi/vendors/server
 
